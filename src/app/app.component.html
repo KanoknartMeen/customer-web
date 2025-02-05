@@ -1,0 +1,28 @@
+<!-- ✅ Top Navbar with User Login -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <!-- App Title -->
+    <span class="text-light me-3">Customer Management</span>
+
+    <div class="d-flex align-items-center">
+      <button *ngIf="isLoggedIn" class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-5 pt-4">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-2">
+  <div *ngIf="toastMessage" class="toast show text-white border-0" [ngClass]="toastMessage.type === 'success' ? 'bg-success' : 'bg-warning'" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        {{ toastMessage.message }}
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="closeToast()"></button>
+    </div>
+  </div>
+</div>

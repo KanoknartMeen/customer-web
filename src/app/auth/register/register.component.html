@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h2 class="mb-4">Register</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <!-- Username Field -->
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" formControlName="username" required />
+        <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="text-danger">
+          Username must be at least 3 characters.
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" required />
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+          Password must be at least 6 characters.
+        </div>
+      </div>
+
+      <!-- Confirm Password Field -->
+      <div class="mb-3">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" formControlName="confirmPassword" required />
+        <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="text-danger">
+          Please confirm your password.
+        </div>
+      </div>
+
+      <!-- Error & Success Messages -->
+      <div *ngIf="errorMessage" class="alert alert-danger text-center">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessage" class="alert alert-success text-center">
+        {{ successMessage }}
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Register</button>
+
+      <button type="button" class="btn btn-outline-secondary w-100 mt-2" routerLink="/login">Back to Login</button>
+    </form>
+  </div>
+</div>

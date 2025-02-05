@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h2 class="mb-4">Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <!-- Username Field -->
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" formControlName="username" autocomplete="false" required />
+        <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="text-danger">
+          Username must be at least 3 characters.
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" autocomplete="false" required />
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+          Password must be at least 6 characters.
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="alert alert-danger text-center">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
+
+      <!-- Register Button -->
+      <button type="button" class="btn btn-outline-secondary w-100 mt-2" routerLink="/register">Register</button>
+    </form>
+  </div>
+</div>
