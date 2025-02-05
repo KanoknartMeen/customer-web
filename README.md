@@ -16,9 +16,7 @@ This is an Angular v19 application with Bootstrap, designed as a simple frontend
 ## Features
 
 - **User Authentication**: Users can register and log in using JWT authentication.
-- ***Customer Management***\*:\*
-  - ROLE\_ADMIN\*: C\*an search, create, update, and delete customers.
-  - ROLE\_USER: Can only search, create, and update customers.
+- **CRUD Functions**: search, create, update, and delete customers.
 - **Responsive UI**: Built with Bootstrap for a user-friendly experience.
 
 ## Installation & Setup
